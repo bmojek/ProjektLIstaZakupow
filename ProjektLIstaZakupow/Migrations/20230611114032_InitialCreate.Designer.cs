@@ -11,7 +11,7 @@ using ProjektLIstaZakupow.Models;
 namespace ProjektLIstaZakupow.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230611095244_InitialCreate")]
+    [Migration("20230611114032_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -31,6 +31,9 @@ namespace ProjektLIstaZakupow.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("CzyKupione")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Nazwa")
                         .HasColumnType("nvarchar(max)");

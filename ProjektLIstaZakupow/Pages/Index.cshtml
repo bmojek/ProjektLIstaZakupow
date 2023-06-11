@@ -1,44 +1,79 @@
 ﻿@page
 @model ProjektLIstaZakupow.Pages.IndexModel
-
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<h1>Lista Zakupów</h1>
+
+<h5>
+    Dodaj produkt
+    <a id="AddBtn" asp-page="Create">+</a>
+</h5>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Produkt[0].Nazwa)
+                Do Kupienia  
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Produkt[0].Rodzaj)
-            </th>
+            <th></th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 
-@foreach (var item in Model.Produkt) {
+        @foreach (var item in Model.Produkt) if (item.CzyKupione != true)
+            {
         <tr>
-            <td>
+            <td width="80px">
+                <a id="NieKupioneTabela" asp-page="./Edit" asp-route-id="@item.Id"><span>&#10003;</span></a>
+            </td>
+            <td width="180px">
                 @Html.DisplayFor(modelItem => item.Nazwa)
             </td>
-            <td>
+            <td width="180px">
                 @Html.DisplayFor(modelItem => item.Rodzaj)
             </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            <td width="180px">
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Usuń produkt</a>
             </td>
         </tr>
 }
+    </tbody>
+</table>
+
+
+<table  class="table">
+    <thead>
+        <tr>
+            <th>
+                Kupione   
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Produkt) if (item.CzyKupione == true)
+    {
+                <tr>
+                    <td width="80px">
+                        <a id="KupioneTabela" asp-page="./Edit" asp-route-id="@item.Id"><span>X</span></a>
+                    </td>
+                    <td width="180px">
+                @Html.DisplayFor(modelItem => item.Nazwa)
+                    </td>
+                    <td width="180px">
+                @Html.DisplayFor(modelItem => item.Rodzaj)
+                    </td>
+                    <td width="180px">
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Usuń produkt</a>  
+                    </td>
+                </tr>
+    }
     </tbody>
 </table>

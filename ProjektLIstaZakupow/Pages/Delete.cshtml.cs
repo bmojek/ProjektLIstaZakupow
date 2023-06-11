@@ -19,7 +19,7 @@ namespace ProjektLIstaZakupow.Pages
         }
 
         [BindProperty]
-      public Produkt Produkt { get; set; } = default!;
+        public Produkt Produkt { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -34,7 +34,7 @@ namespace ProjektLIstaZakupow.Pages
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Produkt = produkt;
             }

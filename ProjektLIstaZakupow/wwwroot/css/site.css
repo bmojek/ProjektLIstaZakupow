@@ -1,18 +1,66 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background: url(../lib/backh.jpg);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-color: rgb(219,239,238);
+}
+
+#AddBtn {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: blue;
+    border-radius: 1000px;
+    padding: 0px 10px 5px;
+    margin: 3px;
+    text-align: left;
+}
+
+#CheckboxProdukt {
+    width: 20px;
+    background-color: green;
+}
+
+#KupioneTabela {
+    text-decoration: none;
+    background-color: red;
+    border-radius: 100px;
+    color: white;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+
+#NieKupioneTabela {
+    font-size: 15px;
+    text-decoration: none;
+    background-color: green;
+    border-radius: 100px;
+    color: white;
+    padding: 5px 10px;
+}
+
+.table {
+    width: 100%;
+    background-color: rgb(219,239,238);
+}
+
+td {
+    text-align: center;
+    font-size: 20px;
 }

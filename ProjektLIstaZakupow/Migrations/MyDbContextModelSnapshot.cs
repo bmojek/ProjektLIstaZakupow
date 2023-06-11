@@ -29,6 +29,9 @@ namespace ProjektLIstaZakupow.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("CzyKupione")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Nazwa")
                         .HasColumnType("nvarchar(max)");
 
